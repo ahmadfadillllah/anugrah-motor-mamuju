@@ -1,0 +1,18 @@
+HTTrack3.49-2+htsswf+htsjava launched on Wed, 21 Dec 2022 09:29:02 at https://dompet.dexignlab.com/xhtml/index.html +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://dompet.dexignlab.com/xhtml/index.html -O1 "C:\My Web Sites\Dompet" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+09:29:03	Warning: 	Found for https://dompet.dexignlab.com/robots.txt
+09:29:03	Warning: 	File has moved from https://dompet.dexignlab.com/robots.txt to https://dompet.dexignlab.com/xhtml/page-error-404.html
+09:31:05	Warning: 	Found for https://dompet.dexignlab.com/xhtml/Trident/
+09:31:05	Warning: 	File has moved from https://dompet.dexignlab.com/xhtml/Trident/ to https://dompet.dexignlab.com/xhtml/page-error-404.html
+09:31:05	Warning: 	Found for https://dompet.dexignlab.com/xhtml/Edge/
+09:31:05	Warning: 	File has moved from https://dompet.dexignlab.com/xhtml/Edge/ to https://dompet.dexignlab.com/xhtml/page-error-404.html
+09:31:31	Warning: 	Warning: store application/octet-stream without scan: C:/My Web Sites/Dompet/dompet.dexignlab.com/xhtml/icons/icomoon/fonts/icomoon.svg
+
+HTTrack Website Copier/3.49-2 mirror complete in 2 minutes 29 seconds : 353 links scanned, 350 files written (28329246 bytes overall) [24101376 bytes received at 161754 bytes/sec], 5180927 bytes transferred using HTTP compression in 67 files, ratio 15%, 24.1 requests per connection
+(No errors, 7 warnings, 0 messages)
