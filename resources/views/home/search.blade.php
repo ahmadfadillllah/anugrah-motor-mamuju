@@ -95,49 +95,52 @@
 
     </div>
 </div>
-
 <div class="content-body">
     <div class="container-fluid">
-        @if (session('success'))
-    <script>
-        Swal.fire(
-        'Good job!',
-        '{{ session('success') }}',
-        'success'
-        )
-    </script>
-@endif
-
-@if (session('info'))
-    <script>
-        Swal.fire(
-        'Upps!',
-        '{{ session('info') }}',
-        'info'
-        )
-    </script>
-@endif
+        @include('notif.index')
         <div class="row">
-            @foreach ($data_barang as $db)
-            <div class="col-xl-4 col-lg-6 col-sm-6">
+            <div class="col-lg-12">
                 <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Data Barang</h4>
+                        <a href="{{ route('home.index') }}" type="button" class="btn btn-rounded btn-info">Kembali</a>
+                    </div>
                     <div class="card-body">
-                        <div class="new-arrival-product">
-                            <div class="new-arrivals-img-contnent">
-                                <img class="img-fluid"
-                                    src="{{ asset('admin/dompet.dexignlab.com/xhtml/images/barang') }}/{{ $db->gambar }}"
-                                    alt="">
-                            </div>
-                            <div class="new-arrival-content text-center mt-3">
-                                <h4><a href="ecom-product-detail.html">{{ $db->nama }}</a></h4>
-                                <p>Jenis Barang: {{ $db->jenis_barang->nama }}</p>
-                                <p>Stok: {{ $db->stok }} {{ $db->satuan_barang->nama }}</p>
-                            </div>
+                        <div class="table-responsive">
+                            <table class="table table-responsive-md">
+                                <thead>
+                                    <tr>
+                                        <th style="width:80px;"><strong>#</strong></th>
+                                        <th><strong>Jenis Barang</strong></th>
+                                        <th><strong>Nama</strong></th>
+                                        <th><strong>Stok</strong></th>
+                                        <th><strong>Status</strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($data_barang as $jb)
+                                    <tr>
+                                        <td><strong>{{ $loop->iteration }}</strong></td>
+                                        <td>{{ $jb->jenis_barang->nama }}</td>
+                                        <td>{{ $jb->nama }}</td>
+                                        <td>{{ $jb->stok }}</td>
+                                        <td>
+                                            @if ($jb->status == 'Tersedia')
+                                            <span class="badge badge-lg light badge-success">{{ $jb->status }}</span>
+                                            @elseif ($jb->status == 'Tidak Tersedia')
+                                            <span class="badge badge-lg light badge-warning">{{ $jb->status }}</span>
+                                            @else
+                                            <span class="badge badge-lg light badge-info">{{ $jb->status }}</span>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
-            @endforeach
         </div>
     </div>
 </div>
