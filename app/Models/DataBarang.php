@@ -15,7 +15,7 @@ class DataBarang extends Model
         'satuanbarang_id',
         'nama',
         'stok',
-        'gambar'
+        'status'
     ];
 
     public function jenis_barang()

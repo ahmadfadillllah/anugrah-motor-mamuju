@@ -31,8 +31,7 @@ class DataBarangController extends Controller
             'jenisbarang_id' => 'required',
             'satuanbarang_id' => 'required',
             'nama' => 'required',
-            'stok' => 'required',
-            'gambar' => 'required','mimes:png,jpg,jpeg,JPG',
+            'status' => 'required',
         ]);
 
         try {
@@ -41,12 +40,9 @@ class DataBarangController extends Controller
             $barang->jenisbarang_id = $request->jenisbarang_id;
             $barang->satuanbarang_id = $request->satuanbarang_id;
             $barang->nama = $request->nama;
-            $barang->stok = $request->stok;
-            if($request->hasFile('gambar')){
-                $request->file('gambar')->move('admin/dompet.dexignlab.com/xhtml/images/barang/', $date.$request->file('gambar')->getClientOriginalName());
-                $barang->gambar = $date.$request->file('gambar')->getClientOriginalName();
-                $barang->save();
-            }
+            $barang->stok = 0;
+            $barang->status = $request->status;
+            $barang->save();
 
             return redirect()->route('databarang.index')->with('success', 'Barang telah ditambahkan');
         } catch (\Throwable $th) {
@@ -71,6 +67,7 @@ class DataBarangController extends Controller
                 'nama' => $request->nama,
                 'jenisbarang_id' => $request->jenisbarang_id,
                 'satuanbarang_id' => $request->satuanbarang_id,
+                'status' => $request->status,
             ]);
             return redirect()->route('databarang.index')->with('success', 'Barang berhasil diupdate');
         } catch (\Throwable $th) {

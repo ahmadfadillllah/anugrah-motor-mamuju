@@ -12,7 +12,7 @@
                     </div>
                     <div class="card-body">
                         <div class="basic-form">
-                            <form action="{{ route('databarang.insert') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('databarang.insert') }}" method="POST">
                                 @csrf
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
@@ -29,8 +29,13 @@
                                         </select>
                                     </div>
                                     <div class="mb-3 col-md-6">
-                                        <label class="form-label">Stok</label>
-                                        <input type="number" class="form-control" value="0" name="stok" readonly>
+                                        <label class="form-label">Status</label>
+                                        <select id="inputState" class="default-select form-control wide" name="status">
+                                            <option selected value="">Pilih salah satu</option>
+                                            <option value="Tersedia">Tersedia</option>
+                                            <option value="Tidak Tersedia">Tidak Tersedia</option>
+                                            <option value="Proses Pengiriman">Proses Pengiriman</option>
+                                        </select>
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <label class="form-label">Satuan Barang</label>
@@ -40,12 +45,6 @@
                                                 <option value="{{ $sb->id }}">{{ $sb->nama }}</option>
                                             @endforeach
                                         </select>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="mb-3 col-md-12">
-                                        <label class="form-label">Pilih Gambar</label>
-                                        <input type="file" class="form-control" name="gambar" required>
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Tambah</button>

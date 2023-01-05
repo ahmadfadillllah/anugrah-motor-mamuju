@@ -29,6 +29,15 @@
                                         </select>
                                     </div>
                                     <div class="mb-3 col-md-6">
+                                        <label class="form-label">Status</label>
+                                        <select id="inputState" class="default-select form-control wide" name="status">
+                                            <option {{ $data_barang->status == 'Tersedia' ? "Tersedia" : ""}} value="{{ $data_barang->status }}">{{ $data_barang->status }}
+                                            <option value="Tersedia">Tersedia</option>
+                                            <option value="Tidak Tersedia">Tidak Tersedia</option>
+                                            <option value="Proses Pengiriman">Proses Pengiriman</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3 col-md-6">
                                         <label class="form-label">Satuan Barang</label>
                                         <select id="inputState" class="default-select form-control wide" name="satuanbarang_id">
                                             <option {{ $data_barang->satuanbarang_id == $data_barang->satuanbarang_id ? "$data_barang->satuan_barang->nama" : ""}} value="{{ $data_barang->satuanbarang_id }}">{{ $data_barang->satuan_barang->nama }}

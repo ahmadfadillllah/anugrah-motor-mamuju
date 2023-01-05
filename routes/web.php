@@ -29,6 +29,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/',[HomeController::class, 'index'])->name('home.index');
+Route::get('/show/{id}',[HomeController::class, 'show'])->name('home.show');
 Route::post('/search_inventory',[HomeController::class, 'search'])->name('home.search');
 
 Route::get('/login',[AuthController::class, 'login'])->name('login');
@@ -45,6 +46,7 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
     Route::post('/cari_barang',[CariBarangController::class, 'index'])->name('caribarang.index');
 
     Route::get('/jenis_barang',[JenisBarangController::class, 'index'])->name('jenisbarang.index');
+    Route::get('/jenis_barang/show/{id}',[JenisBarangController::class, 'show'])->name('jenisbarang.show');
     Route::post('/jenis_barang/insert',[JenisBarangController::class, 'insert'])->name('jenisbarang.insert');
     Route::post('/jenis_barang/update/{id}',[JenisBarangController::class, 'update'])->name('jenisbarang.update');
     Route::get('/jenis_barang/destroy/{id}',[JenisBarangController::class, 'destroy'])->name('jenisbarang.destroy');

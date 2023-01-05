@@ -19,7 +19,7 @@ class CreateDatabarangTable extends Migration
             $table->foreignId('satuanbarang_id')->constrained('satuanbarang')->cascadeOnDelete();
             $table->string('nama');
             $table->integer('stok');
-            $table->string('gambar');
+            $table->string('status');
             $table->timestamps();
         });
     }

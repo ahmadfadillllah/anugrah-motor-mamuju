@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DataBarang;
 use App\Models\JenisBarang;
 use Illuminate\Http\Request;
 
@@ -15,12 +16,30 @@ class JenisBarangController extends Controller
         return view('jenisbarang.index', compact('jenis_barang'));
     }
 
+    public function show($id)
+    {
+        $data_barang = DataBarang::with('jenis_barang')->where('jenisbarang_id', $id)->get();
+
+        return view('jenisbarang.show', compact('data_barang'));
+    }
+
     public function insert(Request $request)
     {
+        $date = date('YmdHisgis');
+
+        $request->validate([
+            'nama' => 'required',
+            'gambar' => 'required','mimes:png,jpg,jpeg,JPG',
+        ]);
+
         try {
-            JenisBarang::create([
-                'nama' => $request->nama,
-            ]);
+            $barang = new JenisBarang;
+            $barang->nama = $request->nama;
+            if($request->hasFile('gambar')){
+                $request->file('gambar')->move('admin/dompet.dexignlab.com/xhtml/images/barang/', $date.$request->file('gambar')->getClientOriginalName());
+                $barang->gambar = $date.$request->file('gambar')->getClientOriginalName();
+                $barang->save();
+            }
             return redirect()->back()->with('success', 'Jenis Barang berhasil ditambahkan');
         } catch (\Throwable $th) {
             return redirect()->back()->with('info', $th->getMessage());

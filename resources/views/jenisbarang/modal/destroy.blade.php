@@ -1,4 +1,4 @@
-<div class="modal fade" id="hapusJenisBarang-{{ $jb->id }}" aria-hidden="true" aria-labelledby="..." tabindex="-1">
+<div class="modal fade" id="hapusJenisBarang-{{ $db->id }}" aria-hidden="true" aria-labelledby="..." tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body text-center p-5">
@@ -12,7 +12,7 @@
                     <h4>Yakin menghapus jenis barang?</h4>
                     <p class="text-muted"> Data yang dihapus tidak akan bisa dikembalikan lagi!!!</p>
                     <!-- Toogle to second dialog -->
-                    <a href="{{ route('jenisbarang.destroy', $jb->id) }}" type="button"  class="btn btn-warning">Hapus</a>
+                    <a href="{{ route('jenisbarang.destroy', $db->id) }}" type="button"  class="btn btn-warning">Hapus</a>
                 </div>
             </div>
         </div>

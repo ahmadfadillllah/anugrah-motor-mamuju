@@ -16,6 +16,7 @@ class CreateJenisbarangTable extends Migration
         Schema::create('jenisbarang', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
+            $table->string('gambar');
             $table->timestamps();
         });
     }

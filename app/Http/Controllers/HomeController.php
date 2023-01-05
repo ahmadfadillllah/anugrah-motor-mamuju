@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DataBarang;
+use App\Models\JenisBarang;
 use Illuminate\Http\Request;
 
 use function PHPUnit\Framework\isEmpty;
@@ -12,8 +13,15 @@ class HomeController extends Controller
     //
     public function index()
     {
-        $data_barang = DataBarang::all();
-        return view('home.index', compact('data_barang'));
+        $jenis_barang = JenisBarang::all();
+        return view('home.index', compact('jenis_barang'));
+    }
+
+    public function show($id)
+    {
+        $data_barang = DataBarang::with('jenis_barang')->where('jenisbarang_id', $id)->get();
+
+        return view('home.show', compact('data_barang'));
     }
 
     public function search(Request $request)

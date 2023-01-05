@@ -37,7 +37,7 @@ class BarangMasukController extends Controller
             BarangMasuk::create([
                 'tanggal_masuk' => $request->tanggal_masuk,
                 'databarang_id' => $request->databarang_id,
-                'stok_sebelumnya' => $request->stok,
+                'stok_sebelumnya' => $request->stok_sebelumnya,
                 'jumlah' => $request->jumlah,
             ]);
 
