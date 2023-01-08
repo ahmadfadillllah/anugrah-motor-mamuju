@@ -30,6 +30,7 @@ class BarangKeluarController extends Controller
 
     public function insert(Request $request)
     {
+        // dd($request->all());
         try {
             DataBarang::where('id', $request->databarang_id)->update(['stok' => $request->stok]);
 

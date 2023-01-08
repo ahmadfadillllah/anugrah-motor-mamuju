@@ -30,7 +30,7 @@
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <label class="form-label">Stok</label>
-                                        <input type="text" id="stok" class="form-control" name="stok" readonly>
+                                        <input type="text" id="stok" class="form-control" name="stok_sebelumnya" readonly>
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <label class="form-label">Jumlah</label>
