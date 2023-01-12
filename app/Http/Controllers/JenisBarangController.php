@@ -19,8 +19,9 @@ class JenisBarangController extends Controller
     public function show($id)
     {
         $data_barang = DataBarang::with('jenis_barang')->where('jenisbarang_id', $id)->get();
+        $jenis_barang = JenisBarang::where('id', $id)->first();
 
-        return view('jenisbarang.show', compact('data_barang'));
+        return view('jenisbarang.show', compact('data_barang', 'jenis_barang'));
     }
 
     public function insert(Request $request)

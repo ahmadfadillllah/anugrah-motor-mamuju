@@ -12,15 +12,14 @@ class DataBarangController extends Controller
     //
     public function index()
     {
-        $data_barang = DataBarang::with('jenis_barang', 'satuan_barang')->get();
+        $data_barang = DataBarang::with('jenis_barang')->get();
         return view('databarang.index', compact('data_barang'));
     }
 
     public function tambah()
     {
         $jenis_barang = JenisBarang::all();
-        $satuan_barang = SatuanBarang::all();
-        return view('databarang.tambah', compact('jenis_barang', 'satuan_barang'));
+        return view('databarang.tambah', compact('jenis_barang'));
     }
 
     public function insert(Request $request)
@@ -29,7 +28,6 @@ class DataBarangController extends Controller
 
         $request->validate([
             'jenisbarang_id' => 'required',
-            'satuanbarang_id' => 'required',
             'nama' => 'required',
             'status' => 'required',
         ]);
@@ -38,7 +36,6 @@ class DataBarangController extends Controller
 
             $barang = new DataBarang;
             $barang->jenisbarang_id = $request->jenisbarang_id;
-            $barang->satuanbarang_id = $request->satuanbarang_id;
             $barang->nama = $request->nama;
             $barang->stok = 0;
             $barang->status = $request->status;
@@ -53,11 +50,10 @@ class DataBarangController extends Controller
     public function edit($id)
     {
         $jenis_barang = JenisBarang::all();
-        $satuan_barang = SatuanBarang::all();
 
-        $data_barang = DataBarang::with('jenis_barang', 'satuan_barang')->where('id', $id)->first();
+        $data_barang = DataBarang::with('jenis_barang')->where('id', $id)->first();
 
-        return view('databarang.edit', compact('data_barang', 'jenis_barang', 'satuan_barang'));
+        return view('databarang.edit', compact('data_barang', 'jenis_barang'));
     }
 
     public function update(Request $request, $id)
@@ -66,7 +62,6 @@ class DataBarangController extends Controller
             DataBarang::where('id', $id)->update([
                 'nama' => $request->nama,
                 'jenisbarang_id' => $request->jenisbarang_id,
-                'satuanbarang_id' => $request->satuanbarang_id,
                 'status' => $request->status,
             ]);
             return redirect()->route('databarang.index')->with('success', 'Barang berhasil diupdate');

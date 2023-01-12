@@ -16,7 +16,6 @@ class CreateDatabarangTable extends Migration
         Schema::create('databarang', function (Blueprint $table) {
             $table->id();
             $table->foreignId('jenisbarang_id')->constrained('jenisbarang')->cascadeOnDelete();
-            $table->foreignId('satuanbarang_id')->constrained('satuanbarang')->cascadeOnDelete();
             $table->string('nama');
             $table->integer('stok');
             $table->string('status');

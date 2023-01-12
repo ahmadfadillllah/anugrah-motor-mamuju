@@ -47,11 +47,6 @@
                 <span class="nav-text">Jenis Barang</span>
             </a>
             </li>
-            <li><a href="{{ route('satuanbarang.index') }}" class="ai-icon" aria-expanded="false">
-                <i class="flaticon-045-heart"></i>
-                <span class="nav-text">Satuan Barang</span>
-            </a>
-            </li>
             <li><a href="{{ route('databarang.index') }}" class="ai-icon" aria-expanded="false">
                 <i class="flaticon-043-menu"></i>
                 <span class="nav-text">Data Barang</span>

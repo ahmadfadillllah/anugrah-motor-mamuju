@@ -22,9 +22,4 @@ class DataBarang extends Model
     {
         return $this->belongsTo(JenisBarang::class, 'jenisbarang_id');
     }
-
-    public function satuan_barang()
-    {
-        return $this->belongsTo(SatuanBarang::class, 'satuanbarang_id');
-    }
 }

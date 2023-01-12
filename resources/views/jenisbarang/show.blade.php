@@ -8,7 +8,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Data Barang</h4>
+                        <h4 class="card-title">{{ $jenis_barang->nama }}</h4>
                         <a href="{{ route('databarang.tambah') }}" type="button" class="btn btn-rounded btn-info"><span
                             class="btn-icon-start text-info"><i class="fa fa-plus color-info"></i>
                         </span>Tambah</a>
@@ -19,7 +19,6 @@
                                 <thead>
                                     <tr>
                                         <th style="width:80px;"><strong>#</strong></th>
-                                        <th><strong>Jenis Barang</strong></th>
                                         <th><strong>Nama</strong></th>
                                         <th><strong>Stok</strong></th>
                                         <th><strong>Status</strong></th>
@@ -30,7 +29,6 @@
                                     @foreach ($data_barang as $jb)
                                     <tr>
                                         <td><strong>{{ $loop->iteration }}</strong></td>
-                                        <td>{{ $jb->jenis_barang->nama }}</td>
                                         <td>{{ $jb->nama }}</td>
                                         <td>{{ $jb->stok }}</td>
                                         <td>

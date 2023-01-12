@@ -51,11 +51,6 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
     Route::post('/jenis_barang/update/{id}',[JenisBarangController::class, 'update'])->name('jenisbarang.update');
     Route::get('/jenis_barang/destroy/{id}',[JenisBarangController::class, 'destroy'])->name('jenisbarang.destroy');
 
-    Route::get('/satuan_barang',[SatuanBarangController::class, 'index'])->name('satuanbarang.index');
-    Route::post('/satuan_barang/insert',[SatuanBarangController::class, 'insert'])->name('satuanbarang.insert');
-    Route::post('/satuan_barang/update/{id}',[SatuanBarangController::class, 'update'])->name('satuanbarang.update');
-    Route::get('/satuan_barang/destroy/{id}',[SatuanBarangController::class, 'destroy'])->name('satuanbarang.destroy');
-
     Route::get('/data_user',[DataUserController::class, 'index'])->name('datauser.index');
     Route::get('/data_user/destroy/{id}',[DataUserController::class, 'destroy'])->name('datauser.destroy');
 
@@ -70,12 +65,16 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
     Route::get('/barang_masuk/tambah',[BarangMasukController::class, 'tambah'])->name('barangmasuk.tambah');
     Route::post('/barang_masuk/insert',[BarangMasukController::class, 'insert'])->name('barangmasuk.insert');
     Route::get('/barang_masuk/show',[BarangMasukController::class, 'show_data'])->name('barangmasuk.show');
+    Route::post('/barang_masuk/edit',[BarangMasukController::class, 'edit'])->name('barangmasuk.edit');
+    Route::post('/barang_masuk/update',[BarangMasukController::class, 'update'])->name('barangmasuk.update');
     Route::get('/barang_masuk/destroy/{id}',[BarangMasukController::class, 'destroy'])->name('barangmasuk.destroy');
 
     Route::get('/barang_keluar',[BarangKeluarController::class, 'index'])->name('barangkeluar.index');
     Route::get('/barang_keluar/tambah',[BarangKeluarController::class, 'tambah'])->name('barangkeluar.tambah');
     Route::post('/barang_keluar/insert',[BarangKeluarController::class, 'insert'])->name('barangkeluar.insert');
     Route::get('/barang_keluar/show',[BarangKeluarController::class, 'show_data'])->name('barangkeluar.show');
+    Route::post('/barang_keluar/edit',[BarangKeluarController::class, 'edit'])->name('barangkeluar.edit');
+    Route::post('/barang_keluar/update',[BarangKeluarController::class, 'update'])->name('barangkeluar.update');
     Route::get('/barang_keluar/destroy/{id}',[BarangKeluarController::class, 'destroy'])->name('barangkeluar.destroy');
 
     Route::get('/profile',[ProfileController::class, 'index'])->name('profile.index');

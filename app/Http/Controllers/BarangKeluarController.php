@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BarangKeluar;
 use App\Models\DataBarang;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class BarangKeluarController extends Controller
@@ -19,6 +20,41 @@ class BarangKeluarController extends Controller
     {
         $barang = DataBarang::all();
         return view('barangkeluar.tambah', compact('barang'));
+    }
+
+    public function edit(Request $request)
+    {
+        try {
+            $barang = DataBarang::with('jenis_barang')->whereIn('id', $request->id)->get();
+
+        return view('barangkeluar.edit', compact('barang'));
+        } catch (\Throwable $th) {
+            return redirect()->route('barangkeluar.tambah')->with('info', 'Tidak ada barang yang dipilih');
+        }
+    }
+
+    public function update(Request $request)
+    {
+        // dd($request->all());
+        try {
+            foreach($request->id as $key=>$value){
+                $barang = new BarangKeluar();
+                $barang->tanggal_keluar = Carbon::now();
+                $barang->databarang_id = $request->id[$key];
+                $barang->stok_sebelumnya = $request->stok_sebelumnya[$key];
+                $barang->jumlah = $request->jumlah[$key];
+                $barang->save();
+            }
+
+            foreach($request->id as $key=>$value){
+                $barang = DataBarang::find($request->id[$key]);
+                $barang->stok = $request->jumlah[$key];
+                $barang->save();
+            }
+            return redirect()->route('barangkeluar.index')->with('success', 'Berhasil update barang');
+        } catch (\Throwable $th) {
+            return redirect()->route('barangkeluar.index')->with(['info' => $th->getMessage()]);
+        }
     }
 
     public function show_data(Request $request)

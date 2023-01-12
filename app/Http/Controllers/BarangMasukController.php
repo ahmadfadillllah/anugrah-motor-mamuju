@@ -4,7 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\BarangMasuk;
 use App\Models\DataBarang;
+use App\Models\JenisBarang;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+
+use function PHPUnit\Framework\isEmpty;
+use function PHPUnit\Framework\isNull;
 
 class BarangMasukController extends Controller
 {
@@ -18,8 +23,44 @@ class BarangMasukController extends Controller
 
     public function tambah()
     {
-        $barang = DataBarang::all();
-        return view('barangmasuk.tambah', compact('barang'));
+        $jenis_barang = JenisBarang::all();
+        $barang = DataBarang::with('jenis_barang')->get();
+        return view('barangmasuk.tambah', compact('jenis_barang', 'barang'));
+    }
+
+    public function edit(Request $request)
+    {
+        try {
+            $barang = DataBarang::with('jenis_barang')->whereIn('id', $request->id)->get();
+
+        return view('barangmasuk.edit', compact('barang'));
+        } catch (\Throwable $th) {
+            return redirect()->route('barangmasuk.tambah')->with('info', 'Tidak ada barang yang dipilih');
+        }
+    }
+
+    public function update(Request $request)
+    {
+        // dd($request->all());
+        try {
+            foreach($request->id as $key=>$value){
+                $barang = new BarangMasuk;
+                $barang->tanggal_masuk = Carbon::now();
+                $barang->databarang_id = $request->id[$key];
+                $barang->stok_sebelumnya = $request->stok_sebelumnya[$key];
+                $barang->jumlah = $request->jumlah[$key];
+                $barang->save();
+            }
+
+            foreach($request->id as $key=>$value){
+                $barang = DataBarang::find($request->id[$key]);
+                $barang->stok = $request->jumlah[$key];
+                $barang->save();
+            }
+            return redirect()->route('barangmasuk.index')->with('success', 'Berhasil update barang');
+        } catch (\Throwable $th) {
+            return redirect()->route('barangmasuk.index')->with(['info' => $th->getMessage()]);
+        }
     }
 
     public function show_data(Request $request)
@@ -27,6 +68,15 @@ class BarangMasukController extends Controller
         $barang = DataBarang::where('id', $request->query('barang_id'))->first();
 
         return response()->json($barang, 200);
+    }
+
+    public function barangAjax(Request $request){
+        if($request->query('jenisbarang_id')==0){
+            $motors = DataBarang::all();
+        }else{
+            $motors = DataBarang::with('jenis_barang')->where('jenisbarang_id', $request->query('jenisbarang_id'))->get();
+        }
+        return $motors;
     }
 
     public function insert(Request $request)
