@@ -19,7 +19,15 @@ class DashboardController extends Controller
         $barang = DataBarang::all()->count();
         $barang_masuk = BarangMasuk::all()->count();
         $barang_keluar = BarangKeluar::all()->count();
-        return view('dashboard.index', compact('jenis_barang', 'barang', 'barang_masuk', 'barang_keluar'));
+
+        $dataBarang = [
+            $jenis_barang,
+            $barang,
+            $barang_masuk,
+            $barang_keluar,
+        ];
+
+        return view('dashboard.index', compact('jenis_barang', 'barang', 'barang_masuk', 'barang_keluar', 'dataBarang'));
     }
 
 

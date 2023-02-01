@@ -43,7 +43,7 @@ Route::get('/logout',[AuthController::class, 'logout'])->name('logout');
 Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
     Route::get('/dashboard/index',[DashboardController::class, 'index'])->name('dashboard.index');
 
-    Route::post('/cari_barang',[CariBarangController::class, 'index'])->name('caribarang.index');
+    Route::post('/cari_jenis_barang',[CariBarangController::class, 'index'])->name('caribarang.index');
 
     Route::get('/jenis_barang',[JenisBarangController::class, 'index'])->name('jenisbarang.index');
     Route::get('/jenis_barang/show/{id}',[JenisBarangController::class, 'show'])->name('jenisbarang.show');

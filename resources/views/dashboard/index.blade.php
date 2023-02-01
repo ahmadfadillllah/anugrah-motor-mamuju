@@ -18,7 +18,7 @@
                         </div>
                         <div>
                             <h2 class="text-white invoice-num">{{ $jenis_barang }}</h2>
-                            <span class="text-white fs-18">Total Jenis Barang</span>
+                            <span class="text-white fs-18">Jenis Barang</span>
                         </div>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                         </div>
                         <div>
                             <h2 class="text-white invoice-num">{{ $barang }}</h2>
-                            <span class="text-white fs-18">Total Barang</span>
+                            <span class="text-white fs-18">Data Barang</span>
                         </div>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
                         </div>
                         <div>
                             <h2 class="text-white invoice-num">{{ $barang_masuk }}</h2>
-                            <span class="text-white fs-18">Total Barang Masuk</span>
+                            <span class="text-white fs-18">Barang Masuk</span>
                         </div>
                     </div>
                 </div>
@@ -73,12 +73,33 @@
                         </div>
                         <div>
                             <h2 class="text-white invoice-num">{{ $barang_keluar }}</h2>
-                            <span class="text-white fs-18">Total Barang Keluar</span>
+                            <span class="text-white fs-18">Barang Keluar</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Diagram</h4>
+                            </div>
+                            <div class="card-body">
+                                <div id="overlapping-bars" class="ct-chart ct-golden-section chartlist-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+<script>
+    var dataBarang = {!! json_encode($dataBarang) !!};
+</script>
 @include('dashboard.layout.footer')

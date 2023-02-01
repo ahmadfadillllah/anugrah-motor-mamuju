@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DataBarang;
+use App\Models\JenisBarang;
 use Illuminate\Http\Request;
 
 class CariBarangController extends Controller
@@ -12,7 +13,7 @@ class CariBarangController extends Controller
     {
         // dd($request->all());
         try {
-            $barang = DataBarang::where('nama','like',"%".$request->cari."%")->get();
+            $barang = JenisBarang::where('nama','like',"%".$request->cari."%")->orderBy('nama', 'asc')->get();
 
             return view('caribarang.index', compact('barang'));
         } catch (\Throwable $th) {

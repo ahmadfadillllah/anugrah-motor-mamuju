@@ -59,10 +59,10 @@
                         <div class="col-xl-12 col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">Overlapping bars on mobile</h4>
+                                    <h4 class="card-title">Chart/Diagram Barang Masuk dan Barang Keluar</h4>
                                 </div>
                                 <div class="card-body">
-                                    <div id="overlapping-bars" class="ct-chart ct-golden-section chartlist-chart"></div>
+                                    <div id="multi-line-chart" class="ct-chart ct-golden-section chartlist-chart"></div>
                                 </div>
                             </div>
                         </div>
@@ -72,4 +72,8 @@
         </div>
     </div>
 </div>
+<script>
+    var dataBarangMasuk = {!! json_encode($dataPemasukan) !!};
+    var dataBarangKeluar = {!! json_encode($dataPengeluaran) !!};
+</script>
 @include('dashboard.layout.footer')

@@ -68,6 +68,12 @@
 <script src="{{ asset('admin/dompet.dexignlab.com/xhtml') }}/vendor/jquery-nice-select/js/jquery.nice-select.min.js"></script>
 <script src="{{ asset('admin/dompet.dexignlab.com/xhtml') }}/js/plugins-init/chartist-init.js"></script>
 
+<!-- Chart Morris plugin files -->
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+<script src="{{ asset('admin/dompet.dexignlab.com/xhtml') }}/vendor/raphael/raphael.min.js"></script>
+<script src="{{ asset('admin/dompet.dexignlab.com/xhtml') }}/vendor/morris/morris.min.js"></script>
+<script src="{{ asset('admin/dompet.dexignlab.com/xhtml') }}/js/plugins-init/morris-init.js"></script>
+
 
 <!-- Dashboard 1 -->
 <script src="{{ asset('admin/dompet.dexignlab.com/xhtml') }}/js/dashboard/dashboard-1.js"></script>

@@ -12,13 +12,13 @@ class DataBarangController extends Controller
     //
     public function index()
     {
-        $data_barang = DataBarang::with('jenis_barang')->get();
+        $data_barang = DataBarang::with('jenis_barang')->orderBy('nama', 'asc')->get();
         return view('databarang.index', compact('data_barang'));
     }
 
     public function tambah()
     {
-        $jenis_barang = JenisBarang::all();
+        $jenis_barang = JenisBarang::orderBy('nama', 'asc')->get();
         return view('databarang.tambah', compact('jenis_barang'));
     }
 

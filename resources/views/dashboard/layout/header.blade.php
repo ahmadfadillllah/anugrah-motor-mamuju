@@ -12,7 +12,7 @@
                         <form action="{{ route('caribarang.index') }}" method="post">
                             @csrf
                             <div class="input-group search-area">
-                                <input type="text" class="form-control" name="cari" placeholder="Cari barang...">
+                                <input type="text" class="form-control" name="cari"  placeholder="Cari jenis barang...">
                                 <span class="input-group-text">
                                     <i class="flaticon-381-search-2"></i>
                             </div>

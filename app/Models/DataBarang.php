@@ -22,4 +22,14 @@ class DataBarang extends Model
     {
         return $this->belongsTo(JenisBarang::class, 'jenisbarang_id');
     }
+
+    public function barang_masuk()
+    {
+        return $this->belongsTo(BarangMasuk::class, 'databarang_id');
+    }
+
+    public function barang_keluar()
+    {
+        return $this->hasOne(BarangKeluar::class, 'databarang_id');
+    }
 }
