@@ -75,9 +75,9 @@ class DataBarangController extends Controller
         try {
             DataBarang::where('id', $id)->delete();
 
-            return redirect()->route('databarang.index')->with('success', 'Barang berhasil dihapus');
+            return redirect()->back()->with('success', 'Barang berhasil dihapus');
         } catch (\Throwable $th) {
-            return redirect()->route('databarang.index')->with('info', $th->getMessage());
+            return redirect()->back()->with('info', $th->getMessage());
         }
     }
 }

@@ -45,7 +45,7 @@
                                         <td>
                                             <div class="dropdown">
                                                     <a href="{{ route('databarang.edit', $jb->id) }}" type="button" class="btn btn-warning btn-xs">Edit</a>
-                                                    <button type="button" class="btn btn-danger btn-xs" data-bs-toggle="modal" data-bs-target="#hapusJenisBarang-{{ $jb->id }}">Hapus</button>
+                                                    <button type="button" class="btn btn-danger btn-xs" data-bs-toggle="modal" data-bs-target="#hapusBarang-{{ $jb->id }}">Hapus</button>
                                                     @include('databarang.modal.destroy')
                                             </div>
                                         </td>
