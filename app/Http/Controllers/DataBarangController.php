@@ -13,13 +13,8 @@ class DataBarangController extends Controller
     public function index()
     {
         $data_barang = DataBarang::with('jenis_barang')->orderBy('nama', 'asc')->get();
-        return view('databarang.index', compact('data_barang'));
-    }
-
-    public function tambah()
-    {
-        $jenis_barang = JenisBarang::orderBy('nama', 'asc')->get();
-        return view('databarang.tambah', compact('jenis_barang'));
+        $jenis_barangg = JenisBarang::orderBy('nama', 'asc')->get();
+        return view('databarang.index', compact('data_barang', 'jenis_barangg'));
     }
 
     public function insert(Request $request)
@@ -41,9 +36,9 @@ class DataBarangController extends Controller
             $barang->status = $request->status;
             $barang->save();
 
-            return redirect()->route('databarang.index')->with('success', 'Barang telah ditambahkan');
+            return redirect()->back()->with('success', 'Barang telah ditambahkan');
         } catch (\Throwable $th) {
-            return redirect()->route('databarang.index')->with('info', $th->getMessage());
+            return redirect()->back()->with('info', $th->getMessage());
         }
     }
 

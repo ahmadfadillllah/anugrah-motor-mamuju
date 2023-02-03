@@ -83,13 +83,13 @@
         <div class="row">
             <div class="col-12">
                 <div class="row">
-                    <div class="col-xl-12 col-lg-12">
+                    <div class="col-xl-12 col-lg-12 col-sm-12">
                         <div class="card">
                             <div class="card-header">
                                 <h4 class="card-title">Diagram</h4>
                             </div>
                             <div class="card-body">
-                                <div id="overlapping-bars" class="ct-chart ct-golden-section chartlist-chart"></div>
+                                <canvas id="barChart_2"></canvas>
                             </div>
                         </div>
                     </div>

@@ -8,9 +8,10 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">{{ $jenis_barang->nama }}</h4>
-                        <a href="{{ route('databarang.tambah') }}" type="button" class="btn btn-rounded btn-info"><span
+                        <button type="button" type="button" class="btn btn-rounded btn-info" data-bs-toggle="modal" data-bs-target="#tambahBarang"><span
                             class="btn-icon-start text-info"><i class="fa fa-plus color-info"></i>
-                        </span>Tambah</a>
+                        </span>Tambah</button>
+                        @include('databarang.modal.insert')
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -56,13 +57,13 @@
             <div class="row">
                 <div class="col-12">
                     <div class="row">
-                        <div class="col-xl-12 col-lg-12">
+                        <div class="col-xl-12 col-lg-12 col-sm-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">Chart/Diagram Barang Masuk dan Barang Keluar</h4>
+                                    <h4 class="card-title">Diagram</h4>
                                 </div>
                                 <div class="card-body">
-                                    <div id="multi-line-chart" class="ct-chart ct-golden-section chartlist-chart"></div>
+                                    <canvas id="lineChart_3"></canvas>
                                 </div>
                             </div>
                         </div>

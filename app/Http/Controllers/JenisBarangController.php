@@ -22,80 +22,80 @@ class JenisBarangController extends Controller
         $data_barang = DataBarang::with('jenis_barang')->where('jenisbarang_id', $id)->orderBy('nama', 'asc')->get();
         // dd($data_barang);
         $jenis_barang = JenisBarang::where('id', $id)->first();
+        $jenis_barangg = JenisBarang::all();
         // dd($jenis_barang);
-
-        $cek_barangmasuk_jan = DataBarang::whereMonth('created_at', '1')
-        ->with('jenis_barang','barang_masuk')->where('jenisbarang_id', $id)->get()->count();
+        $cek_barangmasuk_jan = DataBarang::whereMonth('created_at', '2')
+        ->with('jenis_barang', 'barang_masuk')->where('jenisbarang_id', $id)->whereHas('barang_masuk')->get()->count();
 
         $cek_barangmasuk_feb = DataBarang::whereMonth('created_at', '2')
-        ->with('jenis_barang','barang_masuk')->where('jenisbarang_id', $id)->get()->count();
+        ->with('jenis_barang','barang_masuk')->where('jenisbarang_id', $id)->whereHas('barang_masuk')->get()->count();
 
         $cek_barangmasuk_mar = DataBarang::whereMonth('created_at', '3')
-        ->with('jenis_barang','barang_masuk')->where('jenisbarang_id', $id)->get()->count();
+        ->with('jenis_barang','barang_masuk')->where('jenisbarang_id', $id)->whereHas('barang_masuk')->get()->count();
 
         $cek_barangmasuk_apr = DataBarang::whereMonth('created_at', '4')
-        ->with('jenis_barang','barang_masuk')->where('jenisbarang_id', $id)->get()->count();
+        ->with('jenis_barang','barang_masuk')->where('jenisbarang_id', $id)->whereHas('barang_masuk')->get()->count();
 
         $cek_barangmasuk_mei = DataBarang::whereMonth('created_at', '5')
-        ->with('jenis_barang','barang_masuk')->where('jenisbarang_id', $id)->get()->count();
+        ->with('jenis_barang','barang_masuk')->where('jenisbarang_id', $id)->whereHas('barang_masuk')->get()->count();
 
         $cek_barangmasuk_jun = DataBarang::whereMonth('created_at', '6')
-        ->with('jenis_barang','barang_masuk')->where('jenisbarang_id', $id)->get()->count();
+        ->with('jenis_barang','barang_masuk')->where('jenisbarang_id', $id)->whereHas('barang_masuk')->get()->count();
 
         $cek_barangmasuk_jul = DataBarang::whereMonth('created_at', '7')
-        ->with('jenis_barang','barang_masuk')->where('jenisbarang_id', $id)->get()->count();
+        ->with('jenis_barang','barang_masuk')->where('jenisbarang_id', $id)->whereHas('barang_masuk')->get()->count();
 
         $cek_barangmasuk_agu = DataBarang::whereMonth('created_at', '8')
-        ->with('jenis_barang','barang_masuk')->where('jenisbarang_id', $id)->get()->count();
+        ->with('jenis_barang','barang_masuk')->where('jenisbarang_id', $id)->whereHas('barang_masuk')->get()->count();
 
         $cek_barangmasuk_sep = DataBarang::whereMonth('created_at', '9')
-        ->with('jenis_barang','barang_masuk')->where('jenisbarang_id', $id)->get()->count();
+        ->with('jenis_barang','barang_masuk')->where('jenisbarang_id', $id)->whereHas('barang_masuk')->get()->count();
 
         $cek_barangmasuk_okt = DataBarang::whereMonth('created_at', '10')
-        ->with('jenis_barang','barang_masuk')->where('jenisbarang_id', $id)->get()->count();
+        ->with('jenis_barang','barang_masuk')->where('jenisbarang_id', $id)->whereHas('barang_masuk')->get()->count();
 
         $cek_barangmasuk_nov = DataBarang::whereMonth('created_at', '11')
-        ->with('jenis_barang','barang_masuk')->where('jenisbarang_id', $id)->get()->count();
+        ->with('jenis_barang','barang_masuk')->where('jenisbarang_id', $id)->whereHas('barang_masuk')->get()->count();
 
         $cek_barangmasuk_des = DataBarang::whereMonth('created_at', '12')
-        ->with('jenis_barang','barang_masuk')->where('jenisbarang_id', $id)->get()->count();
+        ->with('jenis_barang','barang_masuk')->where('jenisbarang_id', $id)->whereHas('barang_masuk')->get()->count();
 
         //Barang Keluar
         $cek_barangkeluar_jan = DataBarang::whereMonth('created_at', '1')
-        ->with('jenis_barang','barang_keluar')->where('jenisbarang_id', $id)->get()->count();
+        ->with('jenis_barang','barang_keluar')->where('jenisbarang_id', $id)->whereHas('barang_keluar')->get()->count();
 
         $cek_barangkeluar_feb = DataBarang::whereMonth('created_at', '2')
-        ->with('jenis_barang','barang_keluar')->where('jenisbarang_id', $id)->get()->count();
+        ->with('jenis_barang','barang_keluar')->where('jenisbarang_id', $id)->whereHas('barang_keluar')->get()->count();
 
         $cek_barangkeluar_mar = DataBarang::whereMonth('created_at', '3')
-        ->with('jenis_barang','barang_keluar')->where('jenisbarang_id', $id)->get()->count();
+        ->with('jenis_barang','barang_keluar')->where('jenisbarang_id', $id)->whereHas('barang_keluar')->get()->count();
 
         $cek_barangkeluar_apr = DataBarang::whereMonth('created_at', '4')
-        ->with('jenis_barang','barang_keluar')->where('jenisbarang_id', $id)->get()->count();
+        ->with('jenis_barang','barang_keluar')->where('jenisbarang_id', $id)->whereHas('barang_keluar')->get()->count();
 
         $cek_barangkeluar_mei = DataBarang::whereMonth('created_at', '5')
-        ->with('jenis_barang','barang_keluar')->where('jenisbarang_id', $id)->get()->count();
+        ->with('jenis_barang','barang_keluar')->where('jenisbarang_id', $id)->whereHas('barang_keluar')->get()->count();
 
         $cek_barangkeluar_jun = DataBarang::whereMonth('created_at', '6')
-        ->with('jenis_barang','barang_keluar')->where('jenisbarang_id', $id)->get()->count();
+        ->with('jenis_barang','barang_keluar')->where('jenisbarang_id', $id)->whereHas('barang_keluar')->get()->count();
 
         $cek_barangkeluar_jul = DataBarang::whereMonth('created_at', '7')
-        ->with('jenis_barang','barang_keluar')->where('jenisbarang_id', $id)->get()->count();
+        ->with('jenis_barang','barang_keluar')->where('jenisbarang_id', $id)->whereHas('barang_keluar')->get()->count();
 
         $cek_barangkeluar_agu = DataBarang::whereMonth('created_at', '8')
-        ->with('jenis_barang','barang_keluar')->where('jenisbarang_id', $id)->get()->count();
+        ->with('jenis_barang','barang_keluar')->where('jenisbarang_id', $id)->whereHas('barang_keluar')->get()->count();
 
         $cek_barangkeluar_sep = DataBarang::whereMonth('created_at', '9')
-        ->with('jenis_barang','barang_keluar')->where('jenisbarang_id', $id)->get()->count();
+        ->with('jenis_barang','barang_keluar')->where('jenisbarang_id', $id)->whereHas('barang_keluar')->get()->count();
 
         $cek_barangkeluar_okt = DataBarang::whereMonth('created_at', '10')
-        ->with('jenis_barang','barang_keluar')->where('jenisbarang_id', $id)->get()->count();
+        ->with('jenis_barang','barang_keluar')->where('jenisbarang_id', $id)->whereHas('barang_keluar')->get()->count();
 
         $cek_barangkeluar_nov = DataBarang::whereMonth('created_at', '11')
-        ->with('jenis_barang','barang_keluar')->where('jenisbarang_id', $id)->get()->count();
+        ->with('jenis_barang','barang_keluar')->where('jenisbarang_id', $id)->whereHas('barang_keluar')->get()->count();
 
         $cek_barangkeluar_des = DataBarang::whereMonth('created_at', '12')
-        ->with('jenis_barang','barang_keluar')->where('jenisbarang_id', $id)->get()->count();
+        ->with('jenis_barang','barang_keluar')->where('jenisbarang_id', $id)->whereHas('barang_keluar')->get()->count();
 
         $dataPemasukan = [
             $cek_barangmasuk_jan,
@@ -128,7 +128,7 @@ class JenisBarangController extends Controller
             $cek_barangkeluar_des
         ];
 
-        return view('jenisbarang.show', compact('data_barang', 'jenis_barang', 'dataPemasukan', 'dataPengeluaran'));
+        return view('jenisbarang.show', compact('data_barang', 'jenis_barang', 'dataPemasukan', 'dataPengeluaran', 'jenis_barangg'));
     }
 
     public function insert(Request $request)

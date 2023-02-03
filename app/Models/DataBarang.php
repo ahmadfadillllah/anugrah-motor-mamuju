@@ -25,7 +25,7 @@ class DataBarang extends Model
 
     public function barang_masuk()
     {
-        return $this->belongsTo(BarangMasuk::class, 'databarang_id');
+        return $this->hasOne(BarangMasuk::class, 'databarang_id');
     }
 
     public function barang_keluar()

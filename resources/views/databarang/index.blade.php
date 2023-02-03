@@ -7,9 +7,10 @@
         <div class="card">
             <div class="card-header">
                 <h4 class="card-title">Data Barang</h4>
-                        <a href="{{ route('databarang.tambah') }}" type="button" class="btn btn-rounded btn-info"><span
+                        <button type="button" type="button" class="btn btn-rounded btn-info" data-bs-toggle="modal" data-bs-target="#tambahBarang"><span
                             class="btn-icon-start text-info"><i class="fa fa-plus color-info"></i>
-                        </span>Tambah</a>
+                        </span>Tambah</button>
+                        @include('databarang.modal.insert')
             </div>
             <div class="card-body">
                 <div class="table-responsive">

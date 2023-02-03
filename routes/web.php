@@ -55,7 +55,6 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
     Route::get('/data_user/destroy/{id}',[DataUserController::class, 'destroy'])->name('datauser.destroy');
 
     Route::get('/data_barang',[DataBarangController::class, 'index'])->name('databarang.index');
-    Route::get('/data_barang/tambah',[DataBarangController::class, 'tambah'])->name('databarang.tambah');
     Route::post('/data_barang/insert',[DataBarangController::class, 'insert'])->name('databarang.insert');
     Route::get('/data_barang/edit/{id}',[DataBarangController::class, 'edit'])->name('databarang.edit');
     Route::post('/data_barang/update/{id}',[DataBarangController::class, 'update'])->name('databarang.update');
