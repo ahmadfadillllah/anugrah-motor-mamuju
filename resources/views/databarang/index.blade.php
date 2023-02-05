@@ -18,6 +18,7 @@
                         <thead>
                             <tr>
                                 <th>#</th>
+                                <th>Jenis</th>
                                 <th>Nama</th>
                                 <th>Stok</th>
                                 <th>Status</th>
@@ -28,6 +29,7 @@
                             @foreach ($data_barang as $jb)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $jb->jenis_barang->nama }}</td>
                                     <td>{{ $jb->nama }}</td>
                                     <td>{{ $jb->stok }}</td>
                                     <td>
@@ -50,6 +52,10 @@
                             @endforeach
                         </tbody>
                     </table>
+                    <button type="button" type="button" class="btn btn-rounded btn-success" data-bs-toggle="modal" data-bs-target="#importBarang"><span
+                        class="btn-icon-start text-success"><i class="fa fa-upload color-success"></i>
+                    </span>Import</button>
+                    @include('databarang.modal.import')
                 </div>
             </div>
         </div>

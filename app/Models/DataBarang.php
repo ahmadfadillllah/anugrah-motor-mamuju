@@ -12,7 +12,6 @@ class DataBarang extends Model
 
     protected $fillable = [
         'jenisbarang_id',
-        'satuanbarang_id',
         'nama',
         'stok',
         'status'

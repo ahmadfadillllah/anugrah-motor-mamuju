@@ -59,6 +59,7 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
     Route::get('/data_barang/edit/{id}',[DataBarangController::class, 'edit'])->name('databarang.edit');
     Route::post('/data_barang/update/{id}',[DataBarangController::class, 'update'])->name('databarang.update');
     Route::get('/data_barang/destroy/{id}',[DataBarangController::class, 'destroy'])->name('databarang.destroy');
+    Route::post('/data_barang/import',[DataBarangController::class, 'import'])->name('databarang.import');
 
     Route::get('/barang_masuk',[BarangMasukController::class, 'index'])->name('barangmasuk.index');
     Route::get('/barang_masuk/tambah',[BarangMasukController::class, 'tambah'])->name('barangmasuk.tambah');
