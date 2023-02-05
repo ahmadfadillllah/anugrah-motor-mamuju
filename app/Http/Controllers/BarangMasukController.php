@@ -16,7 +16,10 @@ class BarangMasukController extends Controller
     //
     public function index()
     {
-        $barang_masuk = BarangMasuk::with('data_barang')->get();
+
+        // $barang_masuk = BarangMasuk::with('data_barang')->get();
+        $barang_masuk = DataBarang::with('jenis_barang', 'barang_masuk')->whereHas('barang_masuk')->get();
+        // dd($barang_masuk);
 
         return view('barangmasuk.index', compact('barang_masuk'));
     }

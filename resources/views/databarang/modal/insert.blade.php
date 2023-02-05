@@ -18,7 +18,7 @@
                         <select id="inputState" class="default-select form-control wide" name="jenisbarang_id">
                             <option selected value="">Pilih salah satu</option>
                             @foreach ($jenis_barangg as $jb)
-                                <option value="{{ $jb->id }}">{{ $jb->nama }}</option>
+                                <option value="{{ $jb->id }}">{{ $jb->id }} | {{ $jb->nama }}</option>
                             @endforeach
                         </select>
                     </div>

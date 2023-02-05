@@ -20,6 +20,7 @@
                                     <tr>
                                         <th></th>
                                         <th>Tanggal Keluar</th>
+                                        <th>Jenis Barang</th>
                                         <th>Nama Barang</th>
                                         <th>Stok Sebelumnya</th>
                                         <th>Jumlah Keluar</th>
@@ -30,10 +31,11 @@
                                     @foreach ($barang_keluar as $bk)
                                     <tr>
                                         <td></td>
-                                        <td>{{ $bk->tanggal_keluar }}</td>
-                                        <td>{{ $bk->data_barang->nama }}</td>
-                                        <td>{{ $bk->stok_sebelumnya }}</td>
-                                        <td>{{ $bk->jumlah }}</td>
+                                        <td>{{ $bk->barang_keluar->tanggal_keluar }}</td>
+                                        <td>{{ $bk->jenis_barang->nama }}</td>
+                                        <td>{{ $bk->nama }}</td>
+                                        <td>{{ $bk->barang_keluar->stok_sebelumnya }}</td>
+                                        <td>{{ $bk->barang_keluar->jumlah }}</td>
                                         <td>
                                             <div class="d-flex">
                                                 {{-- <a href="#" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a> --}}
