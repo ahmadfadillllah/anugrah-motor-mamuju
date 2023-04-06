@@ -13,13 +13,13 @@ class HomeController extends Controller
     //
     public function index()
     {
-        $jenis_barang = JenisBarang::all();
+        $jenis_barang = JenisBarang::orderBy('nama', 'asc')->get();
         return view('home.index', compact('jenis_barang'));
     }
 
     public function show($id)
     {
-        $data_barang = DataBarang::with('jenis_barang')->where('jenisbarang_id', $id)->get();
+        $data_barang = DataBarang::with('jenis_barang')->where('jenisbarang_id', $id)->orderBy('nama', 'asc')->get();
 
         return view('home.show', compact('data_barang'));
     }
@@ -27,12 +27,20 @@ class HomeController extends Controller
     public function search(Request $request)
     {
         // dd($request->all());
-        try {
-            $data_barang = DataBarang::where('nama','like',"%".$request->cari."%")->get();
+        // try {
+        //     $data_barang = DataBarang::where('nama','like',"%".$request->cari."%")->get();
 
-            return view('home.search', compact('data_barang'));
+        //     return view('home.search', compact('data_barang'));
+        // } catch (\Throwable $th) {
+        //     return redirect()->route('home.search')->with('info', 'Barang tidak ditemukan');
+        // }
+
+        try {
+            $barang = JenisBarang::where('nama','like',"%".$request->cari."%")->orderBy('nama', 'asc')->get();
+
+            return view('home.search', compact('barang'));
         } catch (\Throwable $th) {
-            return redirect()->route('home.search')->with('info', 'Barang tidak ditemukan');
+            return redirect()->back()->with('info', 'Barang tidak ditemukan');
         }
     }
 }
