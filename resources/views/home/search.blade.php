@@ -88,6 +88,16 @@
                     <i class="flaticon-025-dashboard"></i>
                     <span class="nav-text">Home</span>
                 </a>
+            </li><br>
+            <li class="nav-item">
+                <form action="{{ route('home.search') }}" method="post">
+                    @csrf
+                    <div class="input-group search-area">
+                        <input type="text" class="form-control" name="cari" placeholder="Cari jenis barang...">
+                        <span class="input-group-text">
+                            <i class="flaticon-381-search-2"></i>
+                    </div>
+                </form>
             </li>
 
 
