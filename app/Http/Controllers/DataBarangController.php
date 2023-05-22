@@ -14,7 +14,22 @@ class DataBarangController extends Controller
     //
     public function index()
     {
+
         $data_barang = DataBarang::with('jenis_barang')->orderBy('nama', 'asc')->get();
+
+        foreach ($data_barang as $p) {
+            if($p->stok > 0){
+                $p->update([
+                    'status'     => 'Tersedia'
+                ]);
+            }else{
+                $p->update([
+                    'status'     => 'Tidak Tersedia'
+                ]);
+            }
+        }
+
+
         $jenis_barangg = JenisBarang::orderBy('nama', 'asc')->get();
         return view('databarang.index', compact('data_barang', 'jenis_barangg'));
     }
@@ -59,7 +74,7 @@ class DataBarangController extends Controller
             DataBarang::where('id', $id)->update([
                 'nama' => $request->nama,
                 'jenisbarang_id' => $request->jenisbarang_id,
-                'status' => $request->status,
+                // 'status' => $request->status,
             ]);
             return redirect()->route('databarang.index')->with('success', 'Barang berhasil diupdate');
         } catch (\Throwable $th) {

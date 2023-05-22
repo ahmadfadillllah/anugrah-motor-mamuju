@@ -19,6 +19,19 @@ class DashboardController extends Controller
         $barang = DataBarang::all()->count();
         $barang_masuk = BarangMasuk::all()->count();
         $barang_keluar = BarangKeluar::all()->count();
+        $data_barang = DataBarang::with('jenis_barang')->orderBy('nama', 'asc')->get();
+
+        foreach ($data_barang as $p) {
+            if($p->stok > 0){
+                $p->update([
+                    'status'     => 'Tersedia'
+                ]);
+            }else{
+                $p->update([
+                    'status'     => 'Tidak Tersedia'
+                ]);
+            }
+        }
 
         $dataBarang = [
             $jenis_barang,

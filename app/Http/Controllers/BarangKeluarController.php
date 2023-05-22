@@ -13,7 +13,19 @@ class BarangKeluarController extends Controller
     {
         // $barang_keluar = BarangKeluar::with('data_barang')->get();
         $barang_keluar = DataBarang::with('jenis_barang', 'barang_keluar')->whereHas('barang_keluar')->get();
+        $data_barang = DataBarang::with('jenis_barang')->orderBy('nama', 'asc')->get();
 
+        foreach ($data_barang as $p) {
+            if($p->stok > 0){
+                $p->update([
+                    'status'     => 'Tersedia'
+                ]);
+            }else{
+                $p->update([
+                    'status'     => 'Tidak Tersedia'
+                ]);
+            }
+        }
         return view('barangkeluar.index', compact('barang_keluar'));
     }
 

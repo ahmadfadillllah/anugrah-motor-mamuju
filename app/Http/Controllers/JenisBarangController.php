@@ -13,6 +13,19 @@ class JenisBarangController extends Controller
     public function index()
     {
         $jenis_barang = JenisBarang::orderBy('nama', 'asc')->get();
+        $data_barang = DataBarang::with('jenis_barang')->orderBy('nama', 'asc')->get();
+
+        foreach ($data_barang as $p) {
+            if($p->stok > 0){
+                $p->update([
+                    'status'     => 'Tersedia'
+                ]);
+            }else{
+                $p->update([
+                    'status'     => 'Tidak Tersedia'
+                ]);
+            }
+        }
 
         return view('jenisbarang.index', compact('jenis_barang'));
     }

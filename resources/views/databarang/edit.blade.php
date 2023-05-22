@@ -28,7 +28,7 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                    <div class="mb-3 col-md-6">
+                                    {{-- <div class="mb-3 col-md-6">
                                         <label class="form-label">Status</label>
                                         <select id="inputState" class="default-select form-control wide" name="status">
                                             <option {{ $data_barang->status == 'Tersedia' ? "Tersedia" : ""}} value="{{ $data_barang->status }}">{{ $data_barang->status }}
@@ -36,7 +36,7 @@
                                             <option value="Tidak Tersedia">Tidak Tersedia</option>
                                             <option value="Proses Pengiriman">Proses Pengiriman</option>
                                         </select>
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 <button type="submit" class="btn btn-warning">Update</button>
                             </form>

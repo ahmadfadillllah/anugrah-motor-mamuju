@@ -20,6 +20,19 @@ class BarangMasukController extends Controller
         // $barang_masuk = BarangMasuk::with('data_barang')->get();
         $barang_masuk = DataBarang::with('jenis_barang', 'barang_masuk')->whereHas('barang_masuk')->get();
         // dd($barang_masuk);
+        $data_barang = DataBarang::with('jenis_barang')->orderBy('nama', 'asc')->get();
+
+        foreach ($data_barang as $p) {
+            if($p->stok > 0){
+                $p->update([
+                    'status'     => 'Tersedia'
+                ]);
+            }else{
+                $p->update([
+                    'status'     => 'Tidak Tersedia'
+                ]);
+            }
+        }
 
         return view('barangmasuk.index', compact('barang_masuk'));
     }
