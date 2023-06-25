@@ -52,17 +52,17 @@
                 <span class="nav-text">Data Barang</span>
             </a>
             </li>
-            <li><a href="{{ route('barangmasuk.index') }}" class="ai-icon" aria-expanded="false">
+            <li><a href="{{ route('barangmasuk.tambah') }}" class="ai-icon" aria-expanded="false">
                 <i class="flaticon-022-copy"></i>
                 <span class="nav-text">Barang Masuk</span>
             </a>
             </li>
-            <li><a href="{{ route('barangkeluar.index') }}" class="ai-icon" aria-expanded="false">
+            <li><a href="{{ route('barangkeluar.tambah') }}" class="ai-icon" aria-expanded="false">
                 <i class="flaticon-022-copy"></i>
                 <span class="nav-text">Barang Keluar</span>
             </a>
             </li>
-            {{-- <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                 <i class="flaticon-022-copy"></i>
                 <span class="nav-text">Transaksi</span>
             </a>
@@ -70,7 +70,7 @@
                 <li><a href="{{ route('barangmasuk.index') }}">Barang Masuk</a></li>
                 <li><a href="{{ route('barangkeluar.index') }}">Barang Keluar</a></li>
             </ul>
-        `</li> --}}
+        </li>
 
         </ul>
 

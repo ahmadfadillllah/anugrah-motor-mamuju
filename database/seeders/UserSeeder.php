@@ -23,5 +23,23 @@ class UserSeeder extends Seeder
             'role' => 'admin',
             'avatar' => 'user.png'
         ]);
+
+        User::insert([
+            'name' => 'Hyperlink',
+            'email' => 'Hyperlink@gmail.com',
+            'password' => Hash::make('hyperlink'),
+            'no_hp' => '081248232902',
+            'role' => 'admin',
+            'avatar' => 'user.png'
+        ]);
+
+        User::insert([
+            'name' => '13ulukumba',
+            'email' => '13ulukumba@gmail.com',
+            'password' => Hash::make('13ulukumba'),
+            'no_hp' => '081248232902',
+            'role' => 'admin',
+            'avatar' => 'user.png'
+        ]);
     }
 }
