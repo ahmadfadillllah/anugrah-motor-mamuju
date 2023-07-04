@@ -107,9 +107,9 @@ class BarangMasukController extends Controller
                 'jumlah' => $request->jumlah,
             ]);
 
-            return redirect()->route('barangmasuk.index')->with('success', 'Barang masuk berhasil direkap');
+            return redirect()->route('barangmasuk.tambah')->with('success', 'Barang masuk berhasil direkap');
         } catch (\Throwable $th) {
-            return redirect()->route('barangmasuk.index')->with('info', 'Barang masuk gagal di update');
+            return redirect()->route('barangmasuk.tambah')->with('info', 'Barang masuk gagal di update');
         }
     }
 
