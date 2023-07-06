@@ -73,9 +73,9 @@ class BarangMasukController extends Controller
                 $barang->stok = $request->jumlah[$key];
                 $barang->save();
             }
-            return redirect()->route('barangmasuk.index')->with('success', 'Berhasil update barang');
+            return redirect()->route('barangmasuk.tambah')->with('success', 'Berhasil update barang');
         } catch (\Throwable $th) {
-            return redirect()->route('barangmasuk.index')->with(['info' => $th->getMessage()]);
+            return redirect()->route('barangmasuk.tambah')->with(['info' => $th->getMessage()]);
         }
     }
 
