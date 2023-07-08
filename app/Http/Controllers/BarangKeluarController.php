@@ -13,6 +13,11 @@ class BarangKeluarController extends Controller
     {
         // $barang_keluar = BarangKeluar::with('data_barang')->get();
         $barang_keluar = DataBarang::with('jenis_barang', 'barang_keluar')->whereHas('barang_keluar')->get();
+
+        $barang_keluar = BarangKeluar::select('db.id','barangkeluar.tanggal_keluar', 'jb.nama as jenisbarang', 'db.nama as namabarang', 'barangkeluar.stok_sebelumnya', 'barangkeluar.jumlah')
+        ->leftjoin('databarang as db', 'barangkeluar.databarang_id', '=', 'db.id')
+        ->leftjoin('jenisbarang as jb', 'db.jenisbarang_id', '=', 'jb.id')->get();
+
         $data_barang = DataBarang::with('jenis_barang')->orderBy('nama', 'asc')->get();
 
         foreach ($data_barang as $p) {
